@@ -1,30 +1,26 @@
-
 <div class="container">
-    <h1>Department Form</h1>
-    <form (ngSubmit)="deptSave()">  
-         <div class="form-group">
-         <label for="id">Department ID</label>
-         <input type="number" class="form-control" name="id" [(ngModel)]="department.departmentid" required>
-          </div>
+  <h1>Department Form</h1>
+  <form (ngSubmit)="deptSave()">
+    <div class="form-group">
+      <label for="id">Department ID</label>
+      <input type="number" class="form-control" name="id" [(ngModel)]="department.departmentid" required>
+    </div>
 
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control"name="name" [(ngModel)]="department.name" required>
-      </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" name="name" [(ngModel)]="department.name" required>
+    </div>
 
-      <div class="form-group">
-            <label for="group-name">GroupName</label>
-            <input type="text" class="form-control"name="group-name" required [(ngModel)]="department.groupname">
-       </div>
+    <div class="form-group">
+      <label for="group-name">GroupName</label>
+      <input type="text" class="form-control" name="group-name" required [(ngModel)]="department.groupname">
+    </div>
 
-      <div class="form-group">
-            <label for="modified-date">Modified Date</label>
-            <input type="date" class="form-control"name="modified-date" [(ngModel)]="department.modifieddate">
-          </div>
-<button type="submit" class="btn btn-success">Submit</button>
+    <div class="form-group">
+      <label for="modified-date">Modified Date</label>
+      <input type="date" class="form-control" name="modified-date" [(ngModel)]="department.modifieddate" useValueAsDate>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
 
-    </form>
-    <!-- <app-emp-component *ngIf="isSave"></app-emp-component> -->
+  </form>
 </div>
-
-

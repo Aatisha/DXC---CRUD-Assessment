@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { DepartmentService } from '../department.service';
 import { Department } from '../department';
 
@@ -8,16 +8,23 @@ import { Department } from '../department';
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.scss']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent implements OnInit, OnChanges {
 
-  constructor(private departmentServive:DepartmentService) { }
   @Input() index: number;
-  department=new Department();
+  department = new Department();
+
+  constructor(private departmentServive: DepartmentService) { }
+
+  ngOnChanges() {
+    this.department = this.departmentServive.deptlist[this.index];
+  }
+
   ngOnInit() {
-    this.department=this.departmentServive.deptlist[this.index];
   }
-  deptUpdate()
-  {
-    this.departmentServive.deptlist[this.index]=this.department;
+
+  deptUpdate() {
+    this.departmentServive.deptlist[this.index] = this.department;
+    this.department = new Department();
   }
+
 }
